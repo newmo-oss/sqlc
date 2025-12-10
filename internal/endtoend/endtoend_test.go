@@ -6,6 +6,7 @@ import (
 	"os"
 	osexec "os/exec"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"slices"
 	"strings"
@@ -31,6 +32,39 @@ func stderrTransformer() cmp.Option {
 	return cmp.Transformer("Stderr", func(in string) string {
 		s := strings.Replace(in, "\r", "", -1)
 		return strings.Replace(s, "\\", "/", -1)
+	})
+}
+
+// normalizeJSONPaths normalizes absolute file paths in JSON content to make tests
+// environment-independent. It replaces paths like "/home/user/.../sqlc/internal/..."
+// with "/sqlc/sqlc/internal/..." to match CI environment (where the repo is cloned
+// into /home/runner/work/sqlc/sqlc/).
+func normalizeJSONPaths(content string) string {
+	// Match JSON string values containing absolute paths with "sqlc" in them
+	// Pattern: "filename": "/path/to/sqlc/..."
+	re := regexp.MustCompile(`"filename":\s*"([^"]*?/sqlc/[^"]*)"`)
+	return re.ReplaceAllStringFunc(content, func(match string) string {
+		// Extract the path and normalize it
+		submatch := re.FindStringSubmatch(match)
+		if len(submatch) < 2 {
+			return match
+		}
+		fullPath := submatch[1]
+		// Check if already normalized to /sqlc/sqlc/
+		if strings.Contains(fullPath, "/sqlc/sqlc/") {
+			idx := strings.Index(fullPath, "/sqlc/sqlc/")
+			normalizedPath := fullPath[idx:]
+			return `"filename": "` + normalizedPath + `"`
+		}
+		// Find /sqlc/ and normalize to /sqlc/sqlc/ to match CI environment
+		idx := strings.Index(fullPath, "/sqlc/")
+		if idx == -1 {
+			return match
+		}
+		// Extract the path after /sqlc/ and prepend /sqlc/sqlc/
+		rest := fullPath[idx+len("/sqlc/"):]
+		normalizedPath := "/sqlc/sqlc/" + rest
+		return `"filename": "` + normalizedPath + `"`
 	})
 }
 
@@ -301,6 +335,13 @@ func cmpDirectory(t *testing.T, dir string, actual map[string]string) {
 	}
 	if err := filepath.Walk(dir, ff); err != nil {
 		t.Fatal(err)
+	}
+
+	// Normalize JSON file paths in actual output to make tests environment-independent
+	for name, content := range actual {
+		if strings.HasSuffix(name, ".json") {
+			actual[name] = normalizeJSONPaths(content)
+		}
 	}
 
 	opts := []cmp.Option{

@@ -52,9 +52,16 @@ func hasStarRef(cf *ast.ColumnRef) bool {
 // Return an error if column references are ambiguous
 // Return an error if column references don't exist
 func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, error) {
+	cols, _, err := c.outputColumnsWithExcluded(qc, node)
+	return cols, err
+}
+
+// outputColumnsWithExcluded computes the output columns for a statement and also
+// returns columns that were excluded via exclude_columns configuration.
+func (c *Compiler) outputColumnsWithExcluded(qc *QueryCatalog, node ast.Node) ([]*Column, []*Column, error) {
 	tables, err := c.sourceTables(qc, node)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	targets := &ast.List{}
@@ -70,7 +77,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 		if n.GroupClause != nil {
 			for _, item := range n.GroupClause.Items {
 				if err := findColumnForNode(item, tables, targets); err != nil {
-					return nil, err
+					return nil, nil, err
 				}
 			}
 		}
@@ -86,7 +93,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 						continue
 					}
 					if err := findColumnForNode(sb.Node, tables, targets); err != nil {
-						return nil, fmt.Errorf("%v: if you want to skip this validation, set 'strict_order_by' to false", err)
+						return nil, nil, fmt.Errorf("%v: if you want to skip this validation, set 'strict_order_by' to false", err)
 					}
 				}
 			}
@@ -102,7 +109,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 							continue
 						}
 						if err := findColumnForNode(caseExpr.Xpr, tables, targets); err != nil {
-							return nil, fmt.Errorf("%v: if you want to skip this validation, set 'strict_order_by' to false", err)
+							return nil, nil, fmt.Errorf("%v: if you want to skip this validation, set 'strict_order_by' to false", err)
 						}
 					}
 				}
@@ -112,13 +119,14 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 		// For UNION queries, targets is empty and we need to look for the
 		// columns in Largs.
 		if isUnion {
-			return c.outputColumns(qc, n.Larg)
+			return c.outputColumnsWithExcluded(qc, n.Larg)
 		}
 	case *ast.UpdateStmt:
 		targets = n.ReturningList
 	}
 
 	var cols []*Column
+	var excludedCols []*Column
 
 	for _, target := range targets.Items {
 		res, ok := target.(*ast.ResTarget)
@@ -191,7 +199,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 			// need a recurse function to get the type of a node.
 			if tc, ok := n.Defresult.(*ast.TypeCast); ok {
 				if tc.TypeName == nil {
-					return nil, errors.New("no type name type cast")
+					return nil, nil, errors.New("no type name type cast")
 				}
 				name := ""
 				if ref, ok := tc.Arg.(*ast.ColumnRef); ok {
@@ -236,7 +244,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 				if ref, ok := arg.(*ast.ColumnRef); ok {
 					columns, err := outputColumnRefs(res, tables, ref)
 					if err != nil {
-						return nil, err
+						return nil, nil, err
 					}
 					for _, c := range columns {
 						if firstColumn == nil {
@@ -272,24 +280,43 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 					if scope != "" && scope != t.Rel.Name {
 						continue
 					}
-					for _, c := range t.Columns {
-						cname := c.Name
+					for _, col := range t.Columns {
+						// Collect excluded columns and skip them from output
+						if c.excludeFilter.ShouldExclude(col.Table, col.Name) {
+							excludedCols = append(excludedCols, &Column{
+								Name:         col.Name,
+								OriginalName: col.Name,
+								Type:         col.Type,
+								Scope:        scope,
+								Table:        col.Table,
+								TableAlias:   t.Rel.Name,
+								DataType:     col.DataType,
+								NotNull:      col.NotNull,
+								Unsigned:     col.Unsigned,
+								IsArray:      col.IsArray,
+								ArrayDims:    col.ArrayDims,
+								Length:       col.Length,
+							})
+							continue
+						}
+
+						cname := col.Name
 						if res.Name != nil {
 							cname = *res.Name
 						}
 						cols = append(cols, &Column{
 							Name:         cname,
-							OriginalName: c.Name,
-							Type:         c.Type,
+							OriginalName: col.Name,
+							Type:         col.Type,
 							Scope:        scope,
-							Table:        c.Table,
+							Table:        col.Table,
 							TableAlias:   t.Rel.Name,
-							DataType:     c.DataType,
-							NotNull:      c.NotNull,
-							Unsigned:     c.Unsigned,
-							IsArray:      c.IsArray,
-							ArrayDims:    c.ArrayDims,
-							Length:       c.Length,
+							DataType:     col.DataType,
+							NotNull:      col.NotNull,
+							Unsigned:     col.Unsigned,
+							IsArray:      col.IsArray,
+							ArrayDims:    col.ArrayDims,
+							Length:       col.Length,
 						})
 					}
 				}
@@ -298,7 +325,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 
 			columns, err := outputColumnRefs(res, tables, n)
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 			cols = append(cols, columns...)
 
@@ -335,7 +362,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 			case ast.EXPR_SUBLINK:
 				subcols, err := c.outputColumns(qc, n.Subselect)
 				if err != nil {
-					return nil, err
+					return nil, nil, err
 				}
 				first := subcols[0]
 				if res.Name != nil {
@@ -348,7 +375,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 
 		case *ast.TypeCast:
 			if n.TypeName == nil {
-				return nil, errors.New("no type name type cast")
+				return nil, nil, errors.New("no type name type cast")
 			}
 			name := ""
 			if ref, ok := n.Arg.(*ast.ColumnRef); ok {
@@ -371,7 +398,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 		case *ast.SelectStmt:
 			subcols, err := c.outputColumns(qc, n)
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 			first := subcols[0]
 			if res.Name != nil {
@@ -404,7 +431,7 @@ func (c *Compiler) outputColumns(qc *QueryCatalog, node ast.Node) ([]*Column, er
 		}
 	}
 
-	return cols, nil
+	return cols, excludedCols, nil
 }
 
 const (

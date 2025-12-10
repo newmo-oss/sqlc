@@ -120,6 +120,7 @@ type SQL struct {
 	Codegen              []Codegen `json:"codegen" yaml:"codegen"`
 	Rules                []string  `json:"rules" yaml:"rules"`
 	Analyzer             Analyzer  `json:"analyzer" yaml:"analyzer"`
+	ExcludeColumns       []string  `json:"exclude_columns" yaml:"exclude_columns"`
 }
 
 type Analyzer struct {

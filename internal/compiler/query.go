@@ -43,10 +43,11 @@ type Column struct {
 }
 
 type Query struct {
-	SQL      string
-	Metadata metadata.Metadata
-	Columns  []*Column
-	Params   []Parameter
+	SQL             string
+	Metadata        metadata.Metadata
+	Columns         []*Column
+	ExcludedColumns []*Column
+	Params          []Parameter
 
 	// Needed for CopyFrom
 	InsertIntoTable *ast.TableName

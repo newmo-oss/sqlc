@@ -96,12 +96,13 @@ func pluginCatalog(c *catalog.Catalog) *plugin.Catalog {
 		var tables []*plugin.Table
 		for _, t := range s.Tables {
 			var columns []*plugin.Column
+			var excludedCols []*plugin.Column
 			for _, c := range t.Columns {
 				l := -1
 				if c.Length != nil {
 					l = *c.Length
 				}
-				columns = append(columns, &plugin.Column{
+				col := &plugin.Column{
 					Name: c.Name,
 					Type: &plugin.Identifier{
 						Catalog: c.Type.Catalog,
@@ -125,7 +126,12 @@ func pluginCatalog(c *catalog.Catalog) *plugin.Catalog {
 					},
 					SourceLocation: pluginSourceLocation(c.SourceLocation),
 					TypeMods:       pluginTypeMods(c.Type.Typmods),
-				})
+				}
+				if c.IsExcluded {
+					excludedCols = append(excludedCols, col)
+				} else {
+					columns = append(columns, col)
+				}
 			}
 			var indexes []*plugin.Index
 			for _, idx := range t.Indexes {
@@ -154,11 +160,12 @@ func pluginCatalog(c *catalog.Catalog) *plugin.Catalog {
 					Schema:  t.Rel.Schema,
 					Name:    t.Rel.Name,
 				},
-				Columns:        columns,
-				Comment:        t.Comment,
-				Indexes:        indexes,
-				Constraints:    pluginTableConstraints(t.Constraints),
-				SourceLocation: pluginSourceLocation(t.SourceLocation),
+				Columns:         columns,
+				ExcludedColumns: excludedCols,
+				Comment:         t.Comment,
+				Indexes:         indexes,
+				Constraints:     pluginTableConstraints(t.Constraints),
+				SourceLocation:  pluginSourceLocation(t.SourceLocation),
 			})
 		}
 		schemas = append(schemas, &plugin.Schema{
@@ -256,8 +263,12 @@ func pluginQueries(r *compiler.Result) []*plugin.Query {
 	for _, q := range r.Queries {
 		var params []*plugin.Parameter
 		var columns []*plugin.Column
+		var excludedColumns []*plugin.Column
 		for _, c := range q.Columns {
 			columns = append(columns, pluginQueryColumn(c))
+		}
+		for _, c := range q.ExcludedColumns {
+			excludedColumns = append(excludedColumns, pluginQueryColumn(c))
 		}
 		for _, p := range q.Params {
 			params = append(params, pluginQueryParam(p))
@@ -276,6 +287,7 @@ func pluginQueries(r *compiler.Result) []*plugin.Query {
 			Text:            q.SQL,
 			Comments:        q.Metadata.Comments,
 			Columns:         columns,
+			ExcludedColumns: excludedColumns,
 			Params:          params,
 			Filename:        q.Metadata.Filename,
 			InsertIntoTable: iit,

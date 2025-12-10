@@ -302,6 +302,13 @@
                         "items": {
                             "type": "string"
                         }
+                    },
+                    "exclude_columns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Columns to exclude from star expansion. Format: table.column or schema.table.column"
                     }
                 }
             }

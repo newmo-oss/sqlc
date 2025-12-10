@@ -1,0 +1,22 @@
+{
+  "version": "2",
+  "sql": [
+    {
+      "engine": "postgresql",
+      "schema": "schema.sql",
+      "queries": "query.sql",
+      "exclude_columns": [
+        "users.password",
+        "users.ssn",
+        "accounts.secret_key"
+      ],
+      "gen": {
+        "go": {
+          "package": "querytest",
+          "sql_package": "pgx/v5",
+          "out": "go"
+        }
+      }
+    }
+  ]
+}

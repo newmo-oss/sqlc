@@ -13,11 +13,12 @@ import (
 )
 
 type analysis struct {
-	Table      *ast.TableName
-	Columns    []*Column
-	Parameters []Parameter
-	Named      *named.ParamSet
-	Query      string
+	Table           *ast.TableName
+	Columns         []*Column
+	ExcludedColumns []*Column
+	Parameters      []Parameter
+	Named           *named.ParamSet
+	Query           string
 }
 
 func convertTableName(id *analyzer.Identifier) *ast.TableName {
@@ -185,12 +186,12 @@ func (c *Compiler) _analyzeQuery(raw *ast.RawStmt, query string, failfast bool) 
 	if err := check(err); err != nil {
 		return nil, err
 	}
-	cols, err := c.outputColumns(qc, raw.Stmt)
+	cols, excludedFromOutput, err := c.outputColumnsWithExcluded(qc, raw.Stmt)
 	if err := check(err); err != nil {
 		return nil, err
 	}
 
-	expandEdits, err := c.expand(qc, raw)
+	expandEdits, excludedFromExpand, err := c.expand(qc, raw)
 	if check(err); err != nil {
 		return nil, err
 	}
@@ -200,16 +201,44 @@ func (c *Compiler) _analyzeQuery(raw *ast.RawStmt, query string, failfast bool) 
 		return nil, err
 	}
 
+	// Combine excluded columns from both outputColumns and expand.
+	// Note: This does not recursively collect excluded columns from subqueries,
+	// CTEs, or UNION clauses. Excluded columns are only collected from the
+	// top-level star expansions.
+	// Use a map to deduplicate based on table and column name.
+	excludedMap := make(map[string]*Column)
+	for _, col := range excludedFromOutput {
+		key := ""
+		if col.Table != nil {
+			key = col.Table.Schema + "." + col.Table.Name + "."
+		}
+		key += col.Name
+		excludedMap[key] = col
+	}
+	for _, col := range excludedFromExpand {
+		key := ""
+		if col.Table != nil {
+			key = col.Table.Schema + "." + col.Table.Name + "."
+		}
+		key += col.Name
+		excludedMap[key] = col
+	}
+	var excludedCols []*Column
+	for _, col := range excludedMap {
+		excludedCols = append(excludedCols, col)
+	}
+
 	var rerr error
 	if len(errors) > 0 {
 		rerr = errors[0]
 	}
 
 	return &analysis{
-		Table:      table,
-		Columns:    cols,
-		Parameters: params,
-		Query:      expanded,
-		Named:      namedParams,
+		Table:           table,
+		Columns:         cols,
+		ExcludedColumns: excludedCols,
+		Parameters:      params,
+		Query:           expanded,
+		Named:           namedParams,
 	}, rerr
 }

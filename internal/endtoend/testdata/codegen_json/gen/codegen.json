@@ -63,14 +63,14 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 2,
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " id"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " id"
                 },
                 "type_mods": []
               },
@@ -104,14 +104,14 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 3,
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " name"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " name"
                 },
                 "type_mods": []
               },
@@ -145,14 +145,14 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 4,
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " bio"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " bio"
                 },
                 "type_mods": []
               }
@@ -179,15 +179,16 @@
               "foreign_keys": []
             },
             "source_location": {
-              "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+              "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
               "start_line": 1,
               "start_column": 0,
               "end_line": 0,
               "end_column": 0,
-              "LeadingDetachedComments": [],
-              "LeadingComments": " author",
-              "TrailingComments": ""
-            }
+              "leading_detached_comments": [],
+              "leading_comments": " author",
+              "trailing_comments": ""
+            },
+            "excluded_columns": []
           }
         ],
         "enums": [
@@ -202,39 +203,39 @@
               {
                 "value": "online",
                 "source_location": {
-                  "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 9,
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " online"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " online"
                 }
               },
               {
                 "value": "offline",
                 "source_location": {
-                  "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 10,
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " offline"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " offline"
                 }
               }
             ],
             "source_location": {
-              "filename": "/home/kazegusuri/go/src/github.com/kazegusuri/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+              "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
               "start_line": 8,
               "start_column": 0,
               "end_line": 0,
               "end_column": 0,
-              "LeadingDetachedComments": [],
-              "LeadingComments": " status",
-              "TrailingComments": ""
+              "leading_detached_comments": [],
+              "leading_comments": " status",
+              "trailing_comments": ""
             }
           }
         ],
@@ -1160,7 +1161,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -1493,7 +1495,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -1986,7 +1989,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -2383,7 +2387,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -2716,7 +2721,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -3753,7 +3759,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -4086,7 +4093,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -4675,7 +4683,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -4976,7 +4985,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -5117,7 +5127,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -5418,7 +5429,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -5815,7 +5827,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -7076,7 +7089,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -7633,7 +7647,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -7710,7 +7725,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -8747,7 +8763,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -9208,7 +9225,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -9413,7 +9431,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -10130,7 +10149,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -10431,7 +10451,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -10796,7 +10817,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -11225,7 +11247,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -11558,7 +11581,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -11891,7 +11915,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -12320,7 +12345,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -12781,7 +12807,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -13018,7 +13045,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -13447,7 +13475,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -13908,7 +13937,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -14209,7 +14239,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -14318,7 +14349,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -14619,7 +14651,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -14792,7 +14825,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -15669,7 +15703,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -15842,7 +15877,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -16175,7 +16211,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -16540,7 +16577,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -17033,7 +17071,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -17334,7 +17373,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -17635,7 +17675,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -18160,7 +18201,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -18397,7 +18439,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -18730,7 +18773,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -19223,7 +19267,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -19908,7 +19953,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -20273,7 +20319,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -20574,7 +20621,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -21035,7 +21083,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -21304,7 +21353,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -21765,7 +21815,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -22002,7 +22053,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -22175,7 +22227,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -23340,7 +23393,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -23833,7 +23887,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -24134,7 +24189,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -24499,7 +24555,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -24672,7 +24729,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -25101,7 +25159,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -25370,7 +25429,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -25511,7 +25571,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -26004,7 +26065,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -26465,7 +26527,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -26894,7 +26957,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -27035,7 +27099,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -27400,7 +27465,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -27669,7 +27735,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -28130,7 +28197,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -28495,7 +28563,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -29052,7 +29121,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -29353,7 +29423,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -29782,7 +29853,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -30083,7 +30155,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -30224,7 +30297,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -30557,7 +30631,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -31274,7 +31349,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -31543,7 +31619,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -32292,7 +32369,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -32529,7 +32607,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -32894,7 +32973,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -33803,7 +33883,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -34040,7 +34121,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -34181,7 +34263,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -34578,7 +34661,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -34783,7 +34867,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -35180,7 +35265,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -35513,7 +35599,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -36038,7 +36125,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -36403,7 +36491,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -36736,7 +36825,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -37389,7 +37479,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -37722,7 +37813,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -38023,7 +38115,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -38292,7 +38385,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -38593,7 +38687,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -38766,7 +38861,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -39035,7 +39131,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -39784,7 +39881,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -39989,7 +40087,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -40258,7 +40357,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -41007,7 +41107,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -41308,7 +41409,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -41801,7 +41903,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -42166,7 +42269,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -42531,7 +42635,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -42736,7 +42841,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -43101,7 +43207,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -43338,7 +43445,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -43511,7 +43619,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -43876,7 +43985,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -44113,7 +44223,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -44286,7 +44397,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -44651,7 +44763,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -44888,7 +45001,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -45061,7 +45175,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -45426,7 +45541,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -46623,7 +46739,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -47116,7 +47233,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -47513,7 +47631,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -47974,7 +48093,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -48467,7 +48587,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -49024,7 +49145,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -49677,7 +49799,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -50010,7 +50133,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -50279,7 +50403,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -50644,7 +50769,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -50753,7 +50879,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -50894,7 +51021,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -51259,7 +51387,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -52072,7 +52201,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -52437,7 +52567,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -52770,7 +52901,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -53167,7 +53299,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -53628,7 +53761,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -53993,7 +54127,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -55222,7 +55357,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -55523,7 +55659,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -55856,7 +55993,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -56061,7 +56199,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -56202,7 +56341,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           }
         ],
         "enums": [],
@@ -56448,7 +56588,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -56749,7 +56890,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -56890,7 +57032,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -57127,7 +57270,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -57364,7 +57508,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -57473,7 +57618,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -57582,7 +57728,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -58587,7 +58734,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -58856,7 +59004,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -59061,7 +59210,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -59202,7 +59352,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -59407,7 +59558,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -59548,7 +59700,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -59721,7 +59874,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -59958,7 +60112,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -60163,7 +60318,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -60432,7 +60588,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -60669,7 +60826,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -62090,7 +62248,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -62327,7 +62486,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -62532,7 +62692,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -62705,7 +62866,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -62974,7 +63136,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -63179,7 +63342,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -64056,7 +64220,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -64997,7 +65162,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -65042,7 +65208,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -65183,7 +65350,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -65356,7 +65524,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -65497,7 +65666,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -65734,7 +65904,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -65907,7 +66078,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -66080,7 +66252,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -66125,7 +66298,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -66426,7 +66600,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -67463,7 +67638,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -67764,7 +67940,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -68033,7 +68210,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -68366,7 +68544,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -68635,7 +68814,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -68872,7 +69052,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -69141,7 +69322,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -69474,7 +69656,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -69807,7 +69990,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -70012,7 +70196,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -70313,7 +70498,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -70614,7 +70800,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -73251,7 +73438,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -73488,7 +73676,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -73885,7 +74074,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -74314,7 +74504,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -74679,7 +74870,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -75044,7 +75236,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -75377,7 +75570,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -75742,7 +75936,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -76011,7 +76206,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -76408,7 +76604,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -76677,7 +76874,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -76914,7 +77112,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -77471,7 +77670,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -77708,7 +77908,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -77977,7 +78178,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -78918,7 +79120,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -79091,7 +79294,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -79200,7 +79404,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -79437,7 +79642,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -79642,7 +79848,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -79847,7 +80054,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           },
           {
             "rel": {
@@ -80180,7 +80388,8 @@
             "comment": "",
             "indexes": [],
             "constraints": null,
-            "source_location": null
+            "source_location": null,
+            "excluded_columns": []
           }
         ],
         "enums": [],
@@ -80331,7 +80540,8 @@
       ],
       "comments": [],
       "filename": "query.sql",
-      "insert_into_table": null
+      "insert_into_table": null,
+      "excluded_columns": []
     },
     {
       "text": "SELECT id, name, bio FROM authors\nORDER BY name",
@@ -80438,7 +80648,8 @@
       "params": [],
       "comments": [],
       "filename": "query.sql",
-      "insert_into_table": null
+      "insert_into_table": null,
+      "excluded_columns": []
     },
     {
       "text": "INSERT INTO authors (\n          name, bio\n) VALUES (\n  $1, $2\n)\nRETURNING id, name, bio",
@@ -80620,7 +80831,8 @@
         "catalog": "",
         "schema": "",
         "name": "authors"
-      }
+      },
+      "excluded_columns": []
     },
     {
       "text": "DELETE FROM authors\nWHERE id = $1",
@@ -80666,7 +80878,8 @@
       ],
       "comments": [],
       "filename": "query.sql",
-      "insert_into_table": null
+      "insert_into_table": null,
+      "excluded_columns": []
     }
   ],
   "sqlc_version": "v1.30.0",

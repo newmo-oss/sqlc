@@ -11,14 +11,14 @@ import (
 	"github.com/sqlc-dev/sqlc/internal/sql/astutils"
 )
 
-func (c *Compiler) expand(qc *QueryCatalog, raw *ast.RawStmt) ([]source.Edit, error) {
+func (c *Compiler) expand(qc *QueryCatalog, raw *ast.RawStmt) ([]source.Edit, []*Column, error) {
 	// Return early if there are no A_Star nodes to expand
 	stars := astutils.Search(raw, func(node ast.Node) bool {
 		_, ok := node.(*ast.A_Star)
 		return ok
 	})
 	if len(stars.Items) == 0 {
-		return nil, nil
+		return nil, nil, nil
 	}
 	list := astutils.Search(raw, func(node ast.Node) bool {
 		switch node.(type) {
@@ -32,17 +32,19 @@ func (c *Compiler) expand(qc *QueryCatalog, raw *ast.RawStmt) ([]source.Edit, er
 		return true
 	})
 	if len(list.Items) == 0 {
-		return nil, nil
+		return nil, nil, nil
 	}
 	var edits []source.Edit
+	var excludedCols []*Column
 	for _, item := range list.Items {
-		edit, err := c.expandStmt(qc, raw, item)
+		edit, excluded, err := c.expandStmt(qc, raw, item)
 		if err != nil {
-			return nil, err
+			return nil, nil, err
 		}
 		edits = append(edits, edit...)
+		excludedCols = append(excludedCols, excluded...)
 	}
-	return edits, nil
+	return edits, excludedCols, nil
 }
 
 var validPostgresIdent = regexp.MustCompile(`^[a-z_][a-z0-9_$]*$`)
@@ -78,10 +80,10 @@ func (c *Compiler) quote(x string) string {
 	}
 }
 
-func (c *Compiler) expandStmt(qc *QueryCatalog, raw *ast.RawStmt, node ast.Node) ([]source.Edit, error) {
+func (c *Compiler) expandStmt(qc *QueryCatalog, raw *ast.RawStmt, node ast.Node) ([]source.Edit, []*Column, error) {
 	tables, err := c.sourceTables(qc, node)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	var targets *ast.List
@@ -95,10 +97,11 @@ func (c *Compiler) expandStmt(qc *QueryCatalog, raw *ast.RawStmt, node ast.Node)
 	case *ast.UpdateStmt:
 		targets = n.ReturningList
 	default:
-		return nil, fmt.Errorf("outputColumns: unsupported node type: %T", n)
+		return nil, nil, fmt.Errorf("outputColumns: unsupported node type: %T", n)
 	}
 
 	var edits []source.Edit
+	var excludedCols []*Column
 	for _, target := range targets.Items {
 		res, ok := target.(*ast.ResTarget)
 		if !ok {
@@ -119,7 +122,7 @@ func (c *Compiler) expandStmt(qc *QueryCatalog, raw *ast.RawStmt, node ast.Node)
 			case *ast.A_Star:
 				parts = append(parts, "*")
 			default:
-				return nil, fmt.Errorf("unknown field in ColumnRef: %T", f)
+				return nil, nil, fmt.Errorf("unknown field in ColumnRef: %T", f)
 			}
 		}
 		scope := astutils.Join(ref.Fields, ".")
@@ -138,6 +141,12 @@ func (c *Compiler) expandStmt(qc *QueryCatalog, raw *ast.RawStmt, node ast.Node)
 			tableName := c.quoteIdent(t.Rel.Name)
 			scopeName := c.quoteIdent(scope)
 			for _, column := range t.Columns {
+				// Collect excluded columns and skip them from expansion
+				if c.excludeFilter.ShouldExclude(column.Table, column.Name) {
+					excludedCols = append(excludedCols, column)
+					continue
+				}
+
 				cname := column.Name
 				if res.Name != nil {
 					cname = *res.Name
@@ -199,5 +208,5 @@ func (c *Compiler) expandStmt(qc *QueryCatalog, raw *ast.RawStmt, node ast.Node)
 		})
 	}
 
-	return edits, nil
+	return edits, excludedCols, nil
 }

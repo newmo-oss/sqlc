@@ -146,6 +146,7 @@ type Column struct {
 	GenerateExpr   string
 	DefaultExpr    string
 	SourceLocation *SourceLocation
+	IsExcluded     bool
 
 	linkedType bool
 }

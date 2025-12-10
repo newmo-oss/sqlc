@@ -54,6 +54,10 @@ func (c *Compiler) parseCatalog(schemas []string) error {
 	if len(merr.Errs()) > 0 {
 		return merr
 	}
+
+	// Mark excluded columns in the catalog
+	c.MarkExcludedColumns()
+
 	return nil
 }
 

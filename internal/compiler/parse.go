@@ -127,6 +127,7 @@ func (c *Compiler) parseQuery(stmt ast.Node, src string, filename string, o opts
 		Metadata:        md,
 		Params:          anlys.Parameters,
 		Columns:         anlys.Columns,
+		ExcludedColumns: anlys.ExcludedColumns,
 		SQL:             trimmed,
 		InsertIntoTable: anlys.Table,
 	}, nil
