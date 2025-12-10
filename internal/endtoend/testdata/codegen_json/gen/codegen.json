@@ -63,7 +63,7 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 2,
                   "start_column": 10,
                   "end_line": 0,
@@ -104,7 +104,7 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 3,
                   "start_column": 10,
                   "end_line": 0,
@@ -145,7 +145,7 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 4,
                   "start_column": 10,
                   "end_line": 0,
@@ -179,7 +179,7 @@
               "foreign_keys": []
             },
             "source_location": {
-              "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+              "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
               "start_line": 1,
               "start_column": 0,
               "end_line": 0,
@@ -203,7 +203,7 @@
               {
                 "value": "online",
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 9,
                   "start_column": 10,
                   "end_line": 0,
@@ -216,7 +216,7 @@
               {
                 "value": "offline",
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
                   "start_line": 10,
                   "start_column": 10,
                   "end_line": 0,
@@ -228,7 +228,7 @@
               }
             ],
             "source_location": {
-              "filename": "/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
+              "filename": "/sqlc/sqlc/internal/endtoend/testdata/codegen_json/postgresql/schema.sql",
               "start_line": 8,
               "start_column": 0,
               "end_line": 0,

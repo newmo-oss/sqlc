@@ -65,7 +65,7 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
                   "start_line": 1,
                   "start_column": 10,
                   "end_line": 0,
@@ -106,7 +106,7 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
                   "start_line": 2,
                   "start_column": 10,
                   "end_line": 0,
@@ -147,7 +147,7 @@
                 "unsigned": false,
                 "array_dims": 0,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
                   "start_line": 3,
                   "start_column": 10,
                   "end_line": 0,
@@ -188,7 +188,7 @@
                 "is_unique": true,
                 "is_primary": false,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
                   "start_line": 6,
                   "start_column": 0,
                   "end_line": 0,
@@ -212,7 +212,7 @@
                 "is_unique": false,
                 "is_primary": false,
                 "source_location": {
-                  "filename": "/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
+                  "filename": "/sqlc/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
                   "start_line": 8,
                   "start_column": 0,
                   "end_line": 0,
@@ -229,7 +229,7 @@
               "foreign_keys": []
             },
             "source_location": {
-              "filename": "/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
+              "filename": "/sqlc/sqlc/internal/endtoend/testdata/process_plugin_sqlc_gen_json/schema.sql",
               "start_line": 0,
               "start_column": 0,
               "end_line": 0,

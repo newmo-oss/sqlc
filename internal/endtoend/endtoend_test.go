@@ -37,7 +37,8 @@ func stderrTransformer() cmp.Option {
 
 // normalizeJSONPaths normalizes absolute file paths in JSON content to make tests
 // environment-independent. It replaces paths like "/home/user/.../sqlc/internal/..."
-// with "/sqlc/internal/..." by finding the "sqlc" directory in the path.
+// with "/sqlc/sqlc/internal/..." to match CI environment (where the repo is cloned
+// into /home/runner/work/sqlc/sqlc/).
 func normalizeJSONPaths(content string) string {
 	// Match JSON string values containing absolute paths with "sqlc" in them
 	// Pattern: "filename": "/path/to/sqlc/..."
@@ -49,12 +50,20 @@ func normalizeJSONPaths(content string) string {
 			return match
 		}
 		fullPath := submatch[1]
-		// Find "sqlc" in the path and keep everything from there
+		// Check if already normalized to /sqlc/sqlc/
+		if strings.Contains(fullPath, "/sqlc/sqlc/") {
+			idx := strings.Index(fullPath, "/sqlc/sqlc/")
+			normalizedPath := fullPath[idx:]
+			return `"filename": "` + normalizedPath + `"`
+		}
+		// Find /sqlc/ and normalize to /sqlc/sqlc/ to match CI environment
 		idx := strings.Index(fullPath, "/sqlc/")
 		if idx == -1 {
 			return match
 		}
-		normalizedPath := fullPath[idx:]
+		// Extract the path after /sqlc/ and prepend /sqlc/sqlc/
+		rest := fullPath[idx+len("/sqlc/"):]
+		normalizedPath := "/sqlc/sqlc/" + rest
 		return `"filename": "` + normalizedPath + `"`
 	})
 }
