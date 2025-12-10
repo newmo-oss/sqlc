@@ -68,9 +68,9 @@
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " id"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " id"
                 },
                 "type_mods": []
               },
@@ -109,9 +109,9 @@
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " name"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " name"
                 },
                 "type_mods": []
               },
@@ -150,9 +150,9 @@
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " bio"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " bio"
                 },
                 "type_mods": []
               }
@@ -184,9 +184,9 @@
               "start_column": 0,
               "end_line": 0,
               "end_column": 0,
-              "LeadingDetachedComments": [],
-              "LeadingComments": " author",
-              "TrailingComments": ""
+              "leading_detached_comments": [],
+              "leading_comments": " author",
+              "trailing_comments": ""
             },
             "excluded_columns": []
           }
@@ -208,9 +208,9 @@
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " online"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " online"
                 }
               },
               {
@@ -221,9 +221,9 @@
                   "start_column": 10,
                   "end_line": 0,
                   "end_column": 0,
-                  "LeadingDetachedComments": [],
-                  "LeadingComments": "",
-                  "TrailingComments": " offline"
+                  "leading_detached_comments": [],
+                  "leading_comments": "",
+                  "trailing_comments": " offline"
                 }
               }
             ],
@@ -233,9 +233,9 @@
               "start_column": 0,
               "end_line": 0,
               "end_column": 0,
-              "LeadingDetachedComments": [],
-              "LeadingComments": " status",
-              "TrailingComments": ""
+              "leading_detached_comments": [],
+              "leading_comments": " status",
+              "trailing_comments": ""
             }
           }
         ],

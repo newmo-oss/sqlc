@@ -104,7 +104,7 @@ message IndexElem {
 }
 
 enum SortByDir {
-  SORT_BY_DIR_UNDEFINED = 0;
+  SORT_BY_DIR_UNSPECIFIED = 0;
   SORT_BY_DIR_DEFAULT = 1;
   SORT_BY_DIR_ASC = 2;
   SORT_BY_DIR_DESC = 3;
@@ -112,7 +112,7 @@ enum SortByDir {
 }
 
 enum SortByNulls {
-  SORT_BY_NULLS_UNDEFINED = 0;
+  SORT_BY_NULLS_UNSPECIFIED = 0;
   SORT_BY_NULLS_DEFAULT = 1;
   SORT_BY_NULLS_FIRST = 2;
   SORT_BY_NULLS_LAST = 3;
@@ -169,9 +169,9 @@ message SourceLocation {
   int32 end_line = 4;
   int32 end_column = 5;
 
-  repeated string LeadingDetachedComments = 6;
-  string LeadingComments = 7;
-  string TrailingComments = 8;
+  repeated string leading_detached_comments = 6;
+  string leading_comments = 7;
+  string trailing_comments = 8;
 }
 
 message Query {
